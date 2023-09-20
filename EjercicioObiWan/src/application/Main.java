@@ -52,6 +52,10 @@ public class Main extends Application {
         //Se impide redimensionar
         stage.setResizable(false);
         
+        //Añadir estilos css
+        String uri = getClass().getResource("/css/estilos.css").toString();
+        scene.getStylesheets().add(uri);
+        
         //Se muestra
         stage.show();
         
