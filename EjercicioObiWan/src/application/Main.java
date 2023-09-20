@@ -25,10 +25,8 @@ public class Main extends Application {
         Button botonSaludar = new Button("Saludar");
         Button botonCerrar = new Button("Cerrar");
         
-        
         //Al pulsar el botonCerrar se cierra la ventana
         botonCerrar.setOnAction(w -> Platform.exit());       
-        
 
         //Añadir los nodos a un panel de tipo Grid
         GridPane root = new GridPane();
@@ -52,16 +50,7 @@ public class Main extends Application {
         stage.show();
         
         //Al pulsar el botonSaludar se valida el texto introducido
-        botonCerrar.setOnAction(e -> invocarAlerta("")); 
-        
-        //Validar nombre introducido
-        if(invocarAlerta(tfNombreIntroducido.getText())) {
-        	//Se debe mostrar la ventana de saludo
-        	tfMostrarSaludo.setText("");
-        }else {
-        	tfMostrarSaludo.setText("SALUDOS "+tfNombreIntroducido.getText()+"!!!");
-        }
-		
+        botonSaludar.setOnAction(e -> tfMostrarSaludo.setText("Hola "+tfNombreIntroducido.getText())); 	
 
 	}
 	
