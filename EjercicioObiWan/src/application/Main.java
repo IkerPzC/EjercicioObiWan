@@ -3,7 +3,10 @@ package application;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -52,11 +55,37 @@ public class Main extends Application {
         //Se muestra
         stage.show();
         
-        //Al pulsar el botonSaludar se valida el texto introducido
-        botonSaludar.setOnAction(e -> tfMostrarSaludo.setText("Hola "+tfNombreIntroducido.getText())); 	
+        //Al pulsar el botonSaludar se valida el texto introducido	
+        botonSaludar.setOnAction(e -> {
+            if (tfNombreIntroducido.getText().equals("Obi Wan")) {
+               mostrarAlerta();
+            } else {
+            	tfMostrarSaludo.setText("Hola "+tfNombreIntroducido.getText());
+            }
+        });
 
 	}
 	
+	 protected void mostrarAlerta() {
+		 
+		 //Se crea un stage y se hace modal
+	     Stage stage = new Stage(StageStyle.UTILITY);
+	     stage.initModality(Modality.APPLICATION_MODAL);
+	     
+	     //Se crea una etiqueta
+	     Label etiqueta = new Label("!General Kenobi!");
+	     
+	     //Se crea un grupo al que se añade la etiqueta
+	     Group root = new Group(etiqueta);
+	     
+	     //Se crea una escena, la cual se asigna como escena principal y se le da un titulo
+	     Scene scene = new Scene(root);
+	     stage.setScene(scene);
+	     stage.setTitle("FX Alert");
+	     
+	     //Se muestra la escena
+	     stage.show();
+	 }
 	
 	public static void main(String[] args) {
 		launch(args);
