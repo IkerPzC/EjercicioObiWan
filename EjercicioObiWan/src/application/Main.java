@@ -19,7 +19,7 @@ public class Main extends Application {
 		
 		//Etiquetas
 		TextField tfNombreIntroducido = new TextField();
-		TextField tfMostrarSaludo = new TextField();
+		Label tfMostrarSaludo = new Label();
 		
         //Boton cerrar
         Button botonSaludar = new Button("Saludar");
@@ -46,6 +46,9 @@ public class Main extends Application {
         //Se establece el titulo
         stage.setTitle("Ejercicio Obi Wan");
         
+        //Se impide redimensionar
+        stage.setResizable(false);
+        
         //Se muestra
         stage.show();
         
@@ -54,11 +57,6 @@ public class Main extends Application {
 
 	}
 	
-	private static boolean invocarAlerta(String nombre) {
-		if(nombre.equals("Obi wan"))
-			return true;
-		return false;
-	}
 	
 	public static void main(String[] args) {
 		launch(args);
